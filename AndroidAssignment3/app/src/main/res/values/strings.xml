@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndroidAssignment3</string>
+    <string name="tvNameOne">One</string>
+    <string name="tvNameTwo">Two</string>
+    <string name="tvNameThree">Three</string>
+    <string name="tvNameFive">Five</string>
+    <string name="tvNameFour">Four</string>
+    <string name="tvNameSix">Six</string>
+    <string name="tvNameSeven">Seven</string>
+    <string name="tvNameEight">Eight</string>
+    <string name="action_settings">Settings</string>
+</resources>
