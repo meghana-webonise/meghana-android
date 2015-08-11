@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android_Assignment_Services</string>
+
+    <string name="title">Home Page</string>
+    <string name="action_settings">Settings</string>
+    <string name="etInputField">Enter the input</string>
+    <string name="btnSubmitText">Submit</string>
+</resources>
