@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/button_drawn"
+        android:state_pressed="false">
+    </item>
+
+    <item android:drawable="@drawable/button_pressed"
+        android:state_pressed="true">
+    </item >
+
+</selector><!-- From: file:/home/webonise/AndroidStudioProjects/Android_Assignment_Activity/app/src/main/res/drawable/button_selection.xml -->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <gradient
+        android:startColor="@android:color/black"
+        android:endColor="@android:color/holo_blue_light"
+        android:angle="45"/>
+
+    <corners android:radius="@dimen/cornerRadius" />
+</shape><!-- From: file:/home/webonise/AndroidStudioProjects/Android_Assignment_Activity/app/src/main/res/drawable/button_pressed.xml -->
