@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">nouvelle application</string>
+
+    <string name="hello_world">Bienvenue!</string>
+    <string name="userFirstName">Prénom</string>
+    <string name="userLastName">Nom De Famille</string>
+    <string name="userEmailId">mail ID</string>
+    <string name="userMobileNumber">Numéro de téléphone</string>
+    <string name="userGender">sexe :</string>
+    <string name="male">mâle</string>
+    <string name="female">femme</string>
+    <string name="subscribe">accepter</string>
+    <string name="buttonText">soumettre</string>
+    <string name="action_settings">Paramètres</string>
+
+    <string-array name="countryArray">
+        <item>Choisissez un pays</item>
+        <item>Inde</item>
+        <item>USA</item>
+        <item>Australie</item>
+        <item>Afrique Du Sud</item>
+        <item>Nouvelle Zélande</item>
+    </string-array>
+
+</resources>
