@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ActivitySharedPreferenceAssignment</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="etName">Enter Name</string>
+    <string name="etHeight">Enter Height</string>
+    <string name="etWeight">Enter Weight</string>
+    <string name="btnSave">Save</string>
+    <string name="btnRetrieve">Retrieve</string>
+    <string name="tvTitle">Details Of User</string>
+
+</resources>
