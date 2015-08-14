@@ -10,4 +10,9 @@
     <string name="btnSave">Save</string>
     <string name="btnView">View</string>
     <string name="tvViewDetailsTitle">Details</string>
+    <string name="validateInputDataEnterName">Enter Name</string>
+    <string name="validateInputDataEnterAge">Enter Age</string>
+    <string name="validateInputDataEnterHeight">Enter Height</string>
+    <string name="validateInputDataEnterWeight">Enter Weight</string>
+    <string name="validateInputDataSuccessfulEntry">Data Saved</string>
 </resources>

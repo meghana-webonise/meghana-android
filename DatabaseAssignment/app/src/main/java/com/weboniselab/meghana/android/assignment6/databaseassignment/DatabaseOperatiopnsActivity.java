@@ -41,25 +41,25 @@ public class DatabaseOperatiopnsActivity extends Activity implements View.OnClic
         }
     }
     public boolean validateInputData() {
-        boolean result = true;
+
         if (TextUtils.isEmpty(etName.getText().toString())){
-            Toast.makeText(DatabaseOperatiopnsActivity.this, "Enter name", Toast.LENGTH_SHORT).show();
-            result=false;
+            Toast.makeText(DatabaseOperatiopnsActivity.this, getResources().getString(R.string.validateInputDataEnterName), Toast.LENGTH_SHORT).show();
+            return false;
         }
         else if (TextUtils.isEmpty(etAge.getText().toString())){
-            Toast.makeText(DatabaseOperatiopnsActivity.this, "Entet age", Toast.LENGTH_SHORT).show();
+            Toast.makeText(DatabaseOperatiopnsActivity.this, getResources().getString(R.string.validateInputDataEnterAge), Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(etWeight.getText().toString())) {
-            Toast.makeText(DatabaseOperatiopnsActivity.this, "Enter weight", Toast.LENGTH_SHORT).show();
-            result = false;
+            Toast.makeText(DatabaseOperatiopnsActivity.this, getResources().getString(R.string.validateInputDataEnterHeight), Toast.LENGTH_SHORT).show();
+            return false;
         } else if (TextUtils.isEmpty(etHeight.getText().toString())){
-            Toast.makeText(DatabaseOperatiopnsActivity.this, "Enter Height", Toast.LENGTH_SHORT).show();
-            result=false;
+            Toast.makeText(DatabaseOperatiopnsActivity.this, getResources().getString(R.string.validateInputDataEnterWeight), Toast.LENGTH_SHORT).show();
+            return false;
         }
-        else return true;
+        else Toast.makeText(DatabaseOperatiopnsActivity.this,getResources().getString(R.string.validateInputDataSuccessfulEntry) , Toast.LENGTH_SHORT).show();
 
-        return result;
+        return true;
     }
 
     public void saveDetailsToDatabase(){
@@ -73,7 +73,6 @@ public class DatabaseOperatiopnsActivity extends Activity implements View.OnClic
         userDetails.setHeight(height);
         userDetails.setWeight(weight);
         db.addDetailsToDatabase(userDetails);
-        Toast.makeText(DatabaseOperatiopnsActivity.this, "Data Saved !", Toast.LENGTH_SHORT).show();
     }
 
     public void initialse(){

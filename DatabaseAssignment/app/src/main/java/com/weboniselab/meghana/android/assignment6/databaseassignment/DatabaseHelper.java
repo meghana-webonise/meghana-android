@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL(" CREATE TABLE " +TABLE_NAME+ " ( " +COLUMN_NAME+ " TEXT , " +COLUMN_AGE+ " DOUBLE , "
+        db.execSQL(" CREATE TABLE " +TABLE_NAME+ " ( " +COLUMN_NAME+ " TEXT , " +COLUMN_AGE+ " INTEGER , "
         +COLUMN_HEIGHT+ " DOUBLE , " +COLUMN_WEIGHT+ " DOUBLE ) ");
     }
     @Override
@@ -57,10 +57,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     UserDetails userDetails = new UserDetails();
-                    userDetails.setName(cursor.getString(0));
-                    userDetails.setAge(Integer.parseInt(cursor.getString(1)));
-                    userDetails.setHeight(Double.parseDouble(cursor.getString(2)));
-                    userDetails.setWeight(Double.parseDouble(cursor.getString(3)));
+                    userDetails.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
+                    userDetails.setAge(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_AGE))));
+                    userDetails.setHeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_HEIGHT))));
+                    userDetails.setWeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_WEIGHT))));
                     userDetailsList.add(userDetails);
                 } while (cursor.moveToNext());
             }
