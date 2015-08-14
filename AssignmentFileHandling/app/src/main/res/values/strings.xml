@@ -7,4 +7,7 @@
     <string name="btnRead">Read</string>
     <string name="btnDelete">Delete</string>
     <string name="tvDisplay">Display Data</string>
+    <string name="readDataFromFileText">text</string>
+    <string name="deleteFileToastDelete">File Deleted !</string>
+    <string name="deleteFileToastNotDeleted">File does not exist !</string>
 </resources>

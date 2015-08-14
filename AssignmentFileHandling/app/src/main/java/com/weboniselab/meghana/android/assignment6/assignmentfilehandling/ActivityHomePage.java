@@ -26,9 +26,6 @@ public class ActivityHomePage extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_home_page);
         initialise();
-        btnInsert.setOnClickListener(this);
-        btnRead.setOnClickListener(this);
-        btnDelete.setOnClickListener(this);
     }
 
     @Override
@@ -72,7 +69,7 @@ public class ActivityHomePage extends Activity implements View.OnClickListener{
                 txtData+=strData;
             }
             Intent intent=new Intent(ActivityHomePage.this,ActivityViewData.class);
-            intent.putExtra("text",txtData);
+            intent.putExtra(getResources().getString(R.string.readDataFromFileText),txtData);
             startActivity(intent);
 
         }catch(IOException e){
@@ -85,9 +82,9 @@ public class ActivityHomePage extends Activity implements View.OnClickListener{
         File file=new File(Environment.getExternalStorageDirectory()+File.separator+ Constants.FILENAME);
         boolean status=file.delete();
         if(status)
-            Toast.makeText(ActivityHomePage.this, "File Deleted !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActivityHomePage.this,getResources().getString(R.string.deleteFileToastDelete), Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(ActivityHomePage.this, "File does not exist !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActivityHomePage.this,getResources().getString(R.string.deleteFileToastNotDeleted), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -96,6 +93,9 @@ public class ActivityHomePage extends Activity implements View.OnClickListener{
         btnInsert=(Button) findViewById(R.id.btnInsert);
         btnRead=(Button) findViewById(R.id.btnRead);
         btnDelete=(Button) findViewById(R.id.btnDelete);
+        btnInsert.setOnClickListener(this);
+        btnRead.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
     }
 
 }
