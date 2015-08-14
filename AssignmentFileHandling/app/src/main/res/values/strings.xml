@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AssignmentFileHandling</string>
+
+    <string name="tvTitle">Home Page</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnInsert">Insert</string>
+    <string name="btnRead">Read</string>
+    <string name="btnDelete">Delete</string>
+    <string name="tvDisplay">Display Data</string>
+    <string name="readDataFromFileText">text</string>
+    <string name="deleteFileToastDelete">File Deleted !</string>
+    <string name="deleteFileToastNotDeleted">File does not exist !</string>
+</resources>
