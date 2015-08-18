@@ -14,25 +14,18 @@ import java.util.List;
  * Created by webonise on 17/8/15.
  */
 public class OpenHelperDatabase extends SQLiteOpenHelper {
-
-    public static final String DATABASE_NAME="personDetails";
-    public final String TABLE_NAME="details";
-    public final String COLUMN_NAME="name";
-    public final String COLUMN_AGE="age";
-    public final String COLUMN_HEIGHT="height";
-    public final String COLUMN_WEIGHT="weight";
     private static final int DB_VERSION=1;
     Context mcontext;
 
     public OpenHelperDatabase(Context context){
-        super(context,DATABASE_NAME,null,DB_VERSION);
+        super(context,Constants.DATABASE_NAME,null,DB_VERSION);
         mcontext=context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL(" CREATE TABLE " +TABLE_NAME+ " ( " +COLUMN_NAME+ " TEXT , " +COLUMN_AGE+ " INTEGER , "
-                +COLUMN_HEIGHT+ " DOUBLE , " +COLUMN_WEIGHT+ " DOUBLE ) ");
+        db.execSQL(" CREATE TABLE " +Constants.TABLE_NAME+ " ( " +Constants.COLUMN_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT , " +Constants.COLUMN_NAME+ " TEXT , " +Constants.COLUMN_AGE+ " INTEGER , "
+                +Constants.COLUMN_HEIGHT+ " DOUBLE , " +Constants.COLUMN_WEIGHT+ " DOUBLE ) ");
     }
 
     @Override
@@ -43,26 +36,27 @@ public class OpenHelperDatabase extends SQLiteOpenHelper {
     public void addDetailsToDatabase(PersonDetails details){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME,details.getName());
-        values.put(COLUMN_AGE,details.getAge());
-        values.put(COLUMN_HEIGHT,details.getHeight());
-        values.put(COLUMN_WEIGHT,details.getWeight());
-        db.insert(TABLE_NAME, null, values);
+        values.put(Constants.COLUMN_NAME,details.getName());
+        values.put(Constants.COLUMN_AGE,details.getAge());
+        values.put(Constants.COLUMN_HEIGHT,details.getHeight());
+        values.put(Constants.COLUMN_WEIGHT,details.getWeight());
+        db.insert(Constants.TABLE_NAME, null, values);
         db.close();
     }
 
     public List<PersonDetails> getAllDetails(){
         List<PersonDetails> personDetailsList=new ArrayList<PersonDetails>();
-        String getDetailsQuery="SELECT * FROM " +TABLE_NAME;
+        String getDetailsQuery="SELECT * FROM " +Constants.TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(getDetailsQuery, null);
         try {
             if (cursor.moveToFirst()) do {
                 PersonDetails personDetails = new PersonDetails();
-                personDetails.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
-                personDetails.setAge(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_AGE))));
-                personDetails.setHeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_HEIGHT))));
-                personDetails.setWeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(COLUMN_WEIGHT))));
+                personDetails.setName(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_ID)));
+                personDetails.setName(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_NAME)));
+                personDetails.setAge(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_AGE))));
+                personDetails.setHeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_HEIGHT))));
+                personDetails.setWeight(Double.parseDouble(cursor.getString(cursor.getColumnIndex(Constants.COLUMN_WEIGHT))));
                 personDetailsList.add(personDetails);
             } while (cursor.moveToNext());
         }catch (Exception e){
@@ -71,9 +65,9 @@ public class OpenHelperDatabase extends SQLiteOpenHelper {
         return personDetailsList;
     }
 
-    public void delete(){
+    public void delete(int id){
         SQLiteDatabase db=this.getWritableDatabase();
-        db.execSQL("DELETE FROM "+TABLE_NAME+" WHERE "+COLUMN_NAME+"='");
+        db.delete(Constants.TABLE_NAME, Constants.COLUMN_ID + "=" + id,null);
         db.close();
     }
 }

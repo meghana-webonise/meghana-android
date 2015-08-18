@@ -4,21 +4,31 @@ package com.weboniselab.meghana.android.assignment6.listviewassignment;
  * Created by webonise on 14/8/15.
  */
 public class PersonDetails {
-    int age;
+    int age,id;
     String name;
     Double height,weight;
     public PersonDetails(){
+        this.id=0;
         this.name="";
         this.age=0;
         this.height=0.0;
         this.weight=0.0;
     }
-    public PersonDetails(String name,int age,Double height,Double weight){
+    public PersonDetails(int id,String name,int age,Double height,Double weight){
+        this.id=id;
         this.name=name;
         this.age=age;
         this.height=height;
         this.weight=weight;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public int getAge() {
         return age;
