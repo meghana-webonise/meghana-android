@@ -56,15 +56,14 @@ public class PersonAdapter extends BaseAdapter {
         tvAge.setText(""+items.get(position).getAge());
         tvHeight.setText(items.get(position).getHeight().toString());
         tvWeight.setText(items.get(position).getWeight().toString());
-        final int deletePosition=position;
+
         btnDelete.setOnClickListener(new View.OnClickListener() {
+            int ID=items.get(position).getId();
             @Override
             public void onClick(View v) {
-                Log.d(getClass().getName(),"hi");
-                int ID=items.get(deletePosition).getId();
-                String e=String.valueOf(ID);
+                String e=String.valueOf(position);
                 Log.d(getClass().getName(),e);
-                openHelperDatabase.delete(ID);
+                openHelperDatabase.delete(position);
                 items.remove(position);
                 notifyDataSetChanged();
             }

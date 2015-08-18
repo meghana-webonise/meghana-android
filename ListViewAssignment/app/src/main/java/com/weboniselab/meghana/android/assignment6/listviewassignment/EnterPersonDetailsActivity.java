@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -90,7 +91,10 @@ public class EnterPersonDetailsActivity extends Activity implements View.OnClick
     }
 
     public void clearDetails(){
-
+        etName.setText("");
+        etAge.setText("");
+        etHeight.setText("");
+        etWeight.setText("");
     }
 
 }

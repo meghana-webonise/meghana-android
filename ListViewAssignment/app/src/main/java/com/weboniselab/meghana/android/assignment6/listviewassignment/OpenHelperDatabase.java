@@ -36,6 +36,7 @@ public class OpenHelperDatabase extends SQLiteOpenHelper {
     public void addDetailsToDatabase(PersonDetails details){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put(Constants.COLUMN_NAME,details.getName());
         values.put(Constants.COLUMN_AGE,details.getAge());
         values.put(Constants.COLUMN_HEIGHT,details.getHeight());
@@ -67,7 +68,8 @@ public class OpenHelperDatabase extends SQLiteOpenHelper {
 
     public void delete(int id){
         SQLiteDatabase db=this.getWritableDatabase();
-        db.delete(Constants.TABLE_NAME, Constants.COLUMN_ID + "=" + id,null);
+        String deleteQuery=" DELETE FROM " +Constants.TABLE_NAME+ " WHERE " +Constants.COLUMN_ID+ " = " +id;
+        db.rawQuery(deleteQuery,null);
         db.close();
     }
 }
