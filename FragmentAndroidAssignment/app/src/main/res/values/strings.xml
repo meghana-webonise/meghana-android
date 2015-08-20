@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FragmentAndroidAssignment</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnAdd">Add</string>
+    <string name="etName">Enter Name</string>
+    <string name="etAge">Enter Age</string>
+    <string name="etHeight">Enter Height</string>
+    <string name="etWeight">Enter Weight</string>
+    <string name="btnSave">Save</string>
+    <string name="btnClear">Clear</string>
+    <string name="mainActivityTag">ListViewAssignment</string>
+    <string name="fragmentTag">EnterPersonDetailsFragment</string>
+    <string name="validateInputDataEnterName">Enter Name</string>
+    <string name="validateInputDataEnterAge">Enter Age</string>
+    <string name="validateInputDataEnterHeight">Enter Height</string>
+    <string name="validateInputDataEnterWeight">Enter Weight</string>
+    <string name="validationSuccessful">Details Saved</string>
+    <string name="animationPropertyName">x</string>
+</resources>
