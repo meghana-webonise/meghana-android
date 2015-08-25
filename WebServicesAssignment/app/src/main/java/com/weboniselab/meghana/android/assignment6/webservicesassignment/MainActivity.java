@@ -1,20 +1,41 @@
 package com.weboniselab.meghana.android.assignment6.webservicesassignment;
 
 import android.app.Activity;
+import android.net.Network;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.android.volley.Cache;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import javax.xml.transform.ErrorListener;
 
 public class MainActivity extends Activity {
 
@@ -28,19 +49,45 @@ public class MainActivity extends Activity {
     List<String> items;
     ArrayAdapter<String> itemsAdapter;
     String result;
+    ContactsAdapter contactsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AsyncTaskOperations asyncTaskOperations=new AsyncTaskOperations();
-        asyncTaskOperations.execute(Constants.SERVER_URL);
+       /* AsyncTaskOperations asyncTaskOperations=new AsyncTaskOperations();
+        asyncTaskOperations.execute(Constants.SERVER_URL);*/
         items = new ArrayList<>();
+        listView=(ListView) findViewById(R.id.listView);
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        final JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Constants.SERVER_URL,
+                null,new Response.Listener<JSONObject> (){
+
+            @Override
+            public void onResponse(JSONObject response) {
+                    Gson gson=new Gson();
+                    ContactsResponse contactsResponse =gson.fromJson(response.toString(), ContactsResponse.class);
+                    listView = (ListView) findViewById(R.id.listView);
+                     List<Contacts> list1=contactsResponse.getContacts();
+                     contactsAdapter=new ContactsAdapter(MainActivity.this,list1);
+                     listView.setAdapter(contactsAdapter);
+
+            }
+        },new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(jsonObjectRequest);
     }
-    class AsyncTaskOperations extends AsyncTask<String, String, List> {
+
+
+    /*class AsyncTaskOperations extends AsyncTask<String, String, List> {
         @Override
         protected List doInBackground(String... urls) {
-
             try {
                 connectToApi(urls);
                 inputStream=httpURLConnection.getInputStream();
@@ -87,5 +134,7 @@ public class MainActivity extends Activity {
           listView.setAdapter(itemsAdapter);
 
         }
-    }
+    }*/
+
+
 }
