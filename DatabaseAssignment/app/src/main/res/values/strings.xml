@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DatabaseAssignment</string>
+
+    <string name="tvFormTitle">Form</string>
+    <string name="action_settings">Settings</string>
+    <string name="etName">Enter your Name</string>
+    <string name="etAge">Enter your age</string>
+    <string name="etHeight">Enter your height</string>
+    <string name="etWeight">Enter your weight</string>
+    <string name="btnSave">Save</string>
+    <string name="btnView">View</string>
+    <string name="tvViewDetailsTitle">Details</string>
+</resources>
